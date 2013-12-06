@@ -1,5 +1,5 @@
-Vagrant Config for Apache, Mysql, php, phpmyadmin on Centos 6.4
-mysql Datadir changed to a shared folder.
+Vagrant Config for Apache, Mysql, PHP, phpMyadmin on Centos 6.4
+Mysql datadir changed to a shared folder.
 
 Installation:
 ==============
@@ -23,10 +23,12 @@ if you need, set a new root password for mysql:
 if you need phpmyadmin copy all from extras/phpmyadmin.php to  */etc/phpMyAdmin/config.inc.php*
 
 
+thanks to:
+=======
 
-
-default config is created with: http://www.puphpet.com
-
+- http://www.puphpet.com because config is created with puphpet
+- tayworm from the vagrant irc channel
+- and google :)
 
 
 
