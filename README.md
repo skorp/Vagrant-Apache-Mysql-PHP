@@ -6,7 +6,7 @@ Installation:
 - install VirtualBox: https://www.virtualbox.org/wiki/Downloads
 - install Vagrant: http://downloads.vagrantup.com/
 - Download the Config.
-    - change the shared folder settings in : *Vagrantfile** and *puppets/hierdata/common.yaml**
+    - change the shared folder settings in : *Vagrantfile* and *puppets/hierdata/common.yaml*
 - run **vagrant plugin install vagrant-vbguest --plugin-source http://rubygems.org/ --plugin-version 0.10.0.pre1**
 - run **vagrant up**
 if provisioners not running run **vagrant provision**

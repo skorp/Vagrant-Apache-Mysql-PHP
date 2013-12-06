@@ -1,0 +1,105 @@
+---
+vagrantfile-local:
+    vm:
+        box: centos64-lamp
+        box_url: 'http://box.puphpet.com/centos64-x64-vbox43.box'
+        hostname: centos64-lamp
+        network:
+            private_network: 192.168.56.111
+            forwarded_port:
+                OlwFMjyLr7Jz:
+                    host: '80'
+                    guest: '80'
+        provider:
+            virtualbox:
+                modifyvm:
+                    name: centos64-lamp
+                    natdnshostresolver1: on
+                    memory: '1048'
+                setextradata:
+                    VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root: 1
+        provision:
+            puppet:
+                manifests_path: puppet/manifests
+                options:
+                    - --verbose
+                    - '--hiera_config /vagrant/hiera.yaml'
+                    - '--parser future'
+        synced_folder:
+            Yn8wUABNVZW7:
+                id: vagrant-root
+                source: /Users/kadir/Projects/webs
+                target: /var/www
+                nfs: 'false'
+            h7cVOkYlgJhc:
+                id: vagrant-root
+                source: /Users/kadir/Projects/mysqlDataDir/centos64-lamp
+                target: /var/vagrantmysql
+                nfs: 'false'
+        usable_port_range: 2200..2250
+    ssh:
+        host: null
+        port: null
+        private_key_path: null
+        username: vagrant
+        guest_port: null
+        keep_alive: true
+        forward_agent: false
+        forward_x11: false
+        shell: 'bash -l'
+    vagrant:
+        host: ':detect'
+server:
+    packages:
+        - vim-common
+    dot_files:
+        -
+            bash_aliases: null
+    _prevent_empty: ''
+apache:
+    modules:
+        - headers
+        - info
+        - mime_magic
+        - php
+        - rewrite
+        - ssl
+        - userdir
+    user: www-data
+    group: www-data
+    default_vhost: true
+    mpm_module: prefork
+php:
+    version: '55'
+    composer: '1'
+    modules:
+        php:
+            - cli
+            - common
+            - gd
+            - imap
+            - intl
+            - mbstring
+            - mcrypt
+        pear: {  }
+        pecl: {  }
+    ini:
+        display_errors: On
+        error_reporting: '-1'
+        session.save_path: /var/lib/php/session
+        file_uploads: On
+        memory_limit: 128M
+    timezone: Europe/Berlin
+xdebug:
+    install: '1'
+    settings:
+        xdebug.default_enable: '1'
+        xdebug.remote_autostart: '0'
+        xdebug.remote_connect_back: '1'
+        xdebug.remote_enable: '1'
+        xdebug.remote_handler: dbgp
+        xdebug.remote_port: '9000'
+mysql:
+    root_password: test123
+    phpmyadmin: '1'
+
