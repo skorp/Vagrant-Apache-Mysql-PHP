@@ -31,4 +31,9 @@ thanks to:
 - and google :)
 
 
+known Issues:
+=============
+    vhost configs are removed after vagrant provision
+
+
 
