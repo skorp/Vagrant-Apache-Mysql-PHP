@@ -65,8 +65,8 @@ apache:
         - rewrite
         - ssl
         - userdir
-    user: www-data
-    group: www-data
+    user: vagrant
+    group: www-data 
     default_vhost: true
     mpm_module: prefork
 php:
@@ -86,9 +86,11 @@ php:
     ini:
         display_errors: On
         error_reporting: '-1'
-        session.save_path: /var/lib/php/session
+        session.save_path: /var/www/tmp/php/session
         file_uploads: On
         memory_limit: 128M
+        file_uploads: ON
+        upload_tmp_dir: /var/www/tmp
     timezone: Europe/Berlin
 xdebug:
     install: '1'
