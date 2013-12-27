@@ -398,7 +398,7 @@ if $nginx_values == undef {
 if $mysql_values['root_password'] {
   class { 'mysql::server':
     #root_password => $mysql_values['root_password'],
-    override_options => { 'mysqld' => { 'max_connections' => '1024' ,'datadir' => '/var/vagrantmysql','socket' => '/tmp/mysql.sock','tmpdir'=>'/var/vagrantmysql/tmp'}, 'client' => {'socket' => '/tmp/mysql.sock'}, 'mysqld_safe' => {'socket' => '/tmp/mysql.sock'} }
+    override_options => { 'mysqld' => { 'max_connections' => '1024' ,'datadir' => '/var/vagrantmysql','socket' => '/tmp/mysql.sock','tmpdir'=>'/tmp'}, 'client' => {'socket' => '/tmp/mysql.sock'}, 'mysqld_safe' => {'socket' => '/tmp/mysql.sock'} }
   }
   #if is_hash($mysql_values['databases']) and count($mysql_values['databases']) > 0 {
   #  create_resources(mysql_db, $mysql_values['databases'])
