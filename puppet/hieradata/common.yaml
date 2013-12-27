@@ -69,6 +69,7 @@ apache:
     group: www-data 
     default_vhost: true
     mpm_module: prefork
+    sendfile: Off
 php:
     version: '55'
     composer: '1'
